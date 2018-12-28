@@ -1,0 +1,7 @@
+#设置log文件默认写到工程目录下
+#logging.file=my.log
+
+#设置当前读的配置文件
+spring:
+    profiles:
+        active: dev

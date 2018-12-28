@@ -1,0 +1,54 @@
+server:
+  port: 8100
+  tomcat:
+    uri-encoding: UTF-8
+    max-http-post-size: -1
+  servlet:
+    context-path: /SpringBootTest
+
+spring:
+  session:
+    store-type: none
+#  datasource:
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    driverClassName: oracle.jdbc.driver.OracleDriver
+#    druid:
+#      url: jdbc:oracle:thin:@172.16.0.56:1521:ORCL
+#      username: fujian181123
+#      password: biosan#1047
+#      initial-size: 10
+#      max-active: 100
+#      min-idle: 10
+#      max-wait: 60000
+#      pool-prepared-statements: true
+#      max-pool-prepared-statement-per-connection-size: 20
+#      time-between-eviction-runs-millis: 60000
+#      min-evictable-idle-time-millis: 300000
+#      validation-query: SELECT 1 FROM DUAL
+#      test-while-idle: true
+#      test-on-borrow: false
+#      test-on-return: false
+#      stat-view-servlet:
+#        enabled: true
+#        url-pattern: /druid/*
+#      filter:
+#        stat:
+#          log-slow-sql: true
+#          slow-sql-millis: 1000
+#          merge-sql: true
+#        wall:
+#          config:
+#            multi-statement-allow: true
+
+# Mybatis配置
+#mybatis:
+#  mapperLocations: classpath:mapping/**/*.xml
+#  configuration:
+#    map-underscore-to-camel-case: true
+
+#pagehelper:
+#  helperDialect: com.github.pagehelper.dialect.helper.OracleDialect
+#  reasonable: true
+#  supportMethodsArguments: true
+#  params: pageNum=pageNum;pageSize=pageSizen
+
