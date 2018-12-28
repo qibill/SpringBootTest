@@ -1,11 +1,26 @@
 package com.qibill.format;
 
 
+import javax.validation.Constraint;
+import javax.validation.Payload;
 import java.lang.annotation.*;
+import com.qibill.format.MyDateTimeFormat.List;
 
+
+import static java.lang.annotation.ElementType.ANNOTATION_TYPE;
+import static java.lang.annotation.ElementType.CONSTRUCTOR;
+import static java.lang.annotation.ElementType.FIELD;
+import static java.lang.annotation.ElementType.METHOD;
+import static java.lang.annotation.ElementType.PARAMETER;
+import static java.lang.annotation.ElementType.TYPE_USE;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
+
+
+@Repeatable(List.class)
+@Constraint(validatedBy = MyDateTimeFormatValidator.class)
 @Documented
-@Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER, ElementType.ANNOTATION_TYPE})
+@Retention(RUNTIME)
+@Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER, TYPE_USE})
 public @interface MyDateTimeFormat {
 
     String message() default "{com.qibill.format.MyDateTimeFormat.message}";
@@ -16,7 +31,17 @@ public @interface MyDateTimeFormat {
 
     String pattern() default "";
 
+    Class<?>[] groups() default { };
 
+    Class<? extends Payload>[] payload() default { };
+
+    @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER, TYPE_USE })
+    @Retention(RUNTIME)
+    @Documented
+    @interface List {
+
+        MyDateTimeFormat[] value();
+    }
     enum ISO {
 
         /**

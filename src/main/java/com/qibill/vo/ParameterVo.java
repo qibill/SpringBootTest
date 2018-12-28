@@ -19,10 +19,10 @@ public class ParameterVo {
     @NotBlank(message = "母亲姓名不能为空")
     private String mothername;
 
-/*    @NotNull(message = "婴儿生日不能为空")
+    @NotNull(message = "婴儿生日不能为空")
     @MyDateTimeFormat (pattern = "yyyy-MM-dd HH:mm", message = "婴儿生日格式不对")
     @Past(message = "婴儿生日必须是过去的日期")
-    private Date birthday;*/
+    private Date birthday;
 
     @NotNull(message = "采血日期不能为空")
     @DateTimeFormat (pattern = "yyyy-MM-dd HH:mm")
@@ -43,5 +43,22 @@ public class ParameterVo {
 
     public void setCollectdate(Date collectdate) {
         this.collectdate = collectdate;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
+    @Override
+    public String toString() {
+        return "ParameterVo{" +
+                "mothername='" + mothername + '\'' +
+                ", birthday=" + birthday +
+                ", collectdate=" + collectdate +
+                '}';
     }
 }

@@ -1,0 +1,9 @@
+/bin/
+/target
+/.settings/
+/.idea/
+/logs/
+/.classpath
+/.project
+.gitignore
+SpringBootTest.iml

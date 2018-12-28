@@ -19,9 +19,11 @@ public class ParameterController {
 
     @ResponseBody
     @RequestMapping(value = "/parameter/test", method = RequestMethod.GET)
-    public String test(ParameterVo parameterVo, BindingResult bindingResult) {
+    public String test(@Valid ParameterVo parameterVo, BindingResult bindingResult) {
         //校验参数
         BindingResultUtil.validateParameters(bindingResult);
+
+        System.out.println(parameterVo);
         return "test";
     }
 

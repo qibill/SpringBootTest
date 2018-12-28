@@ -1,11 +1,10 @@
 package com.qibill.config;
 
+import com.qibill.format.MyDateTimeFormatAnnotationFormatterFactory;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.HandlerExceptionResolver;
+import org.springframework.format.FormatterRegistry;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
-import java.util.List;
 
 /**
  * @description: 设置类，允许跨域
@@ -24,4 +23,8 @@ public class MyWebMvcConfigurer implements WebMvcConfigurer {
                 .maxAge(3600);
     }
 
+    @Override
+    public void addFormatters(FormatterRegistry registry) {
+        registry.addFormatterForFieldAnnotation(new MyDateTimeFormatAnnotationFormatterFactory());
+    }
 }

@@ -1,11 +1,24 @@
 package com.qibill.format;
 
 
+import com.qibill.common.utils.SpringUtil;
 import com.qibill.format.MyDateTimeFormat.ISO;
+import org.springframework.beans.PropertyAccessException;
+import org.springframework.beans.TypeMismatchException;
 import org.springframework.format.Formatter;
 import org.springframework.lang.Nullable;
 import org.springframework.util.StringUtils;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
+import javax.validation.constraints.AssertTrue;
+import javax.validation.constraints.NotBlank;
+import javax.validation.executable.ExecutableValidator;
+import javax.validation.metadata.BeanDescriptor;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -46,6 +59,9 @@ public class MyDateFormatter implements Formatter<Date> {
     private TimeZone timeZone;
 
     private boolean lenient = false;
+
+    @Nullable
+    private String message;
 
 
     /**
@@ -126,6 +142,9 @@ public class MyDateFormatter implements Formatter<Date> {
         this.lenient = lenient;
     }
 
+    public void setMessage(@Nullable String message) {
+        this.message = message;
+    }
 
     @Override
     public String print(Date date, Locale locale) {
@@ -133,8 +152,14 @@ public class MyDateFormatter implements Formatter<Date> {
     }
 
     @Override
-    public Date parse(String text, Locale locale) throws ParseException {
-        return getDateFormat(locale).parse(text);
+    public Date parse(String text, Locale locale) {
+        Date parse;
+        try {
+            parse = getDateFormat(locale).parse(text);
+        }catch (IllegalArgumentException | ParseException e){
+            return new Date(0);
+        }
+        return parse;
     }
 
 
