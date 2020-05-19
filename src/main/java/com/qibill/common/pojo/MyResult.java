@@ -82,6 +82,12 @@ public class MyResult {
 		return result;
 	}
 
+	public static MyResult fail(String msg) {
+		MyResult result = new MyResult(FAIL);
+		result.setMsg(msg);
+		return result;
+	}
+
 	@Override
 	public String toString() {
 		return "MyResult{" +

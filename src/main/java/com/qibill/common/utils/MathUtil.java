@@ -3,9 +3,9 @@ package com.qibill.common.utils;
 import java.math.BigDecimal;
 
 /**
- * @description:
- * @author: qibill
- * @date: 2018/12/4 17:36
+ *
+ * @author qibill
+ * @date 2018/12/4 17:36
  **/
 public class MathUtil {
 

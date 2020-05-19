@@ -25,9 +25,9 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
- * @description:
- * @author: qibill
- * @date: 2018/12/28 11:47
+ *
+ * @author qibill
+ * @date 2018/12/28 11:47
  **/
 public class MyDateFormatter implements Formatter<Date> {
 

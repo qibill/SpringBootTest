@@ -1,9 +1,9 @@
 package com.qibill.common.utils;
 
 /**
- * @description:
- * @author: Administrator
- * @date: 2018/12/12 11:47
+ *
+ * @author Administrator
+ * @date 2018/12/12 11:47
  **/
 public class StringUtil {
 

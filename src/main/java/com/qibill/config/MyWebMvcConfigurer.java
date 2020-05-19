@@ -7,9 +7,9 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
- * @description: 设置类，允许跨域
- * @author: qibill
- * @date: 2018/12/14 16:14
+ *  设置类，允许跨域
+ * @author qibill
+ * @date 2018/12/14 16:14
  **/
 @Configuration
 public class MyWebMvcConfigurer implements WebMvcConfigurer {

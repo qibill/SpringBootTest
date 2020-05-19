@@ -4,22 +4,19 @@ import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializerProvider;
-import com.qibill.format.MyBindingErrorProcessor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
-import org.springframework.validation.BindingErrorProcessor;
 import org.springframework.validation.DefaultBindingErrorProcessor;
 
 import java.io.IOException;
 
 /**
- * @description:
- * @author: qibill
- * @date: 2018/12/19 15:13
+ *
+ * @author qibill
+ * @date 2018/12/19 15:13
  **/
 @Configuration
 public class JsonConfig {

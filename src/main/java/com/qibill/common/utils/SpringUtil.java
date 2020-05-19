@@ -8,9 +8,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 /**
- * @description: Spring工具类，取出Spring容器内的Bean。
- * @author: qibill
- * @date: 2018/12/4 18:00
+ *  Spring工具类，取出Spring容器内的Bean。
+ * @author qibill
+ * @date 2018/12/4 18:00
  **/
 @Configuration
 @Component

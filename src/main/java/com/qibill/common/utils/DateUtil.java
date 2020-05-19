@@ -7,9 +7,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * @description: 时间的工具类
- * @author: qibill
- * @date: 2018/11/12 11:22
+ *  时间的工具类
+ * @author qibill
+ * @date 2018/11/12 11:22
  **/
 public class DateUtil {
 
