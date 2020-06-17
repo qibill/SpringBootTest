@@ -2,7 +2,8 @@ package com.qibill.handle;
 
 
 import com.qibill.common.pojo.MyResult;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
@@ -23,7 +24,7 @@ import java.util.List;
 @RestControllerAdvice
 public class ExceptionHandle {
 
-	private static final Logger LOGGER = Logger.getLogger(ExceptionHandle.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(ExceptionHandle.class);
 
 	/**
 	 * 校验错误拦截处理
@@ -35,10 +36,12 @@ public class ExceptionHandle {
 	@ResponseBody
 	public MyResult handleHttpBindException(BindException bindException) {
 		BindingResult bindingResult = bindException.getBindingResult();
+		System.out.println(bindingResult.getClass());
 		if (bindingResult.hasErrors()) {
 			List<ObjectError> errors = bindingResult.getAllErrors();
 			StringBuilder msg = new StringBuilder();
 			for (ObjectError objectError : errors) {
+				System.out.println(objectError.getClass());
 				FieldError fieldError = (FieldError) objectError;
 				LOGGER.error(String.format("数据校验失败 : 对象【%s】中的【%s】的属性校验错误，信息为：[%s]",
 						fieldError.getObjectName(), fieldError.getField(), fieldError.getDefaultMessage()));
@@ -55,7 +58,7 @@ public class ExceptionHandle {
 	@ResponseBody
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	public MyResult handle(Exception e) {
-		LOGGER.fatal("参数错误", e);
+		LOGGER.error("参数错误", e);
 		return MyResult.fail(e);
 	}
 }

@@ -44,7 +44,7 @@ public class JsonUtil {
 	 * 将json结果集转化为对象
 	 * 
 	 * @param jsonData json数据
-	 * @param clazz 对象中的object类型
+	 * @param beanType 对象中的object类型
 	 * @return
 	 */
 	public static <T> T jsonToPojo(String jsonData, Class<T> beanType) {
@@ -81,8 +81,7 @@ public class JsonUtil {
 	 * 将pojo对象转换成map
 	 * <p>Title: jsonToList</p>
 	 * <p>Description: </p>
-	 * @param jsonData
-	 * @param beanType
+	 * @param t
 	 * @return
 	 */
 	public static <T> Map<String, Object> pojoToMap(T t) {

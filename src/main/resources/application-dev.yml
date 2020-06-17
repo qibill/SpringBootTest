@@ -1,5 +1,5 @@
 server:
-  port: 8100
+  port: 8300
   tomcat:
     uri-encoding: UTF-8
     max-http-post-size: -1
@@ -7,6 +7,9 @@ server:
     context-path: /SpringBootTest
 
 spring:
+  jmx:
+    # 预防多个springboot项目部署到tomcat
+    default-domain: Dover2Zhiye
   session:
     store-type: none
 #  datasource:
