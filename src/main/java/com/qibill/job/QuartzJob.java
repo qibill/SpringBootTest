@@ -20,6 +20,6 @@ public class QuartzJob extends QuartzJobBean {
 
     @Override
     protected void executeInternal(JobExecutionContext jobExecutionContext) throws JobExecutionException {
-        System.out.println("定时任务");
+        LOGGER.info("定时任务");
     }
 }
