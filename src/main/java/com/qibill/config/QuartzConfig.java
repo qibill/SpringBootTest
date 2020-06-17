@@ -1,6 +1,5 @@
 package com.qibill.config;
 
-
 import com.qibill.factory.JobBeanFactory;
 import com.qibill.job.QuartzJob;
 import org.quartz.*;
